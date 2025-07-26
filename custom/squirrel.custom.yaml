@@ -1,11 +1,11 @@
 patch:
   # ascii_mode、inline、no_inline、vim_mode 等等设定，可参考 /Library/Input Methods/Squirrel.app/Contents/SharedSupport/squirrel.yaml
   app_options:
-    #com.raycast.macos:
+    com.raycast.macos:
     #  ascii_mode: true   # 初始爲西文模式
-    #com.microsoft.VSCode:
-    #  ascii_mode: true   # 初始爲西文模式
-    #  vim_mode: true
+    com.microsoft.VSCode:
+      ascii_mode: true   # 初始爲西文模式
+      vim_mode: true
     #md.obsidian:
     #  ascii_mode: true   # 初始爲西文模式
     #  vim_mode: true
