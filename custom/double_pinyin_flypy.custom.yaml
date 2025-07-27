@@ -1,0 +1,11 @@
+# 以 patch 的方式打补丁
+# 文件名为 xxx.custom.yaml，内容以 patch: 开头的，是补丁文件，注意缩进，可以对原配置进行覆盖和追加。
+
+# 方案 xxx.schema.yaml 的补丁文件是 xxx.custom.yaml
+# default.yaml squirrel.yaml 就是把结尾的 .yaml 改成 .custom.yaml
+
+patch:
+  # translator/preedit_format 这里会影响输入框和 shift + 回车时的显示，比如是显示 nue、nve 或 nüe。dd
+  # 如果是双拼方案，preedit_format 还可以选择是否在输入框进行转换，比如小鹤双拼输入 zz 时，是显示 zz 还是 zou。
+  # 要设置双拼不转换为全拼，可以直接把 preedit_format 及下面那些 xform 都删除，或者这样打补丁：
+  translator/preedit_format: []

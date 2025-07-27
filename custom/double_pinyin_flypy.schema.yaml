@@ -315,6 +315,7 @@ editor:
     Control+BackSpace: back_syllable      # Ctrl+退格键：删除一个音节
     Control+Delete: delete_candidate      # Ctrl+Delete键：删除或降权候选项
     Escape: cancel                        # Esc 键：取消输入
+    Shift: commit_raw_input
 
 
 # 拼写设定
