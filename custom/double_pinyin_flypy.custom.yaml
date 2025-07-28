@@ -9,3 +9,4 @@ patch:
   # 如果是双拼方案，preedit_format 还可以选择是否在输入框进行转换，比如小鹤双拼输入 zz 时，是显示 zz 还是 zou。
   # 要设置双拼不转换为全拼，可以直接把 preedit_format 及下面那些 xform 都删除，或者这样打补丁：
   translator/preedit_format: []
+  editor/bindings/Shift: commit_raw_input
