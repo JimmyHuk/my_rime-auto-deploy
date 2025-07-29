@@ -41,3 +41,7 @@ patch:
   # 翻页 [ ]  ⚠️ 开启时请修改上面以词定字的快捷键
   # - { when: paging, accept: bracketleft, send: Page_Up }
   # - { when: has_menu, accept: bracketright, send: Page_Down }
+
+  schema_list:
+  - {schema: double_pinyin_flypy}
+  - {schema: rime_ice}
