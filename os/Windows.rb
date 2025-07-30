@@ -1,3 +1,5 @@
+require 'fileutils'
+
 module RimeDeploy
   class WindowsJobGroup < JobGroup
     Store.config_path = ENV["APPDATA"] + '\\Rime'
@@ -50,6 +52,19 @@ You can download Rime from: https://rime.im/download/
           "git clone --depth=1 #{Config::RIME_CONFIG_REPO} #{Store.config_path}"
         )
         sleep 1
+        system(
+          "git clone --depth=1 #{Config::RIME_CONFIG_REPO} .\\rime_git_repo\\"
+        )  
+        sleep 1  
+        git_path = File.expand_path(".\\rime_git_repo\\.git\\")
+        begin
+          FileUtils.rm_rf(git_path)
+          puts "成功删除目录: #{git_path}" unless Dir.exist?(git_path)
+        rescue => e
+          puts "删除目录失败: #{e.message}"
+          exit 1
+        end 
+        sleep 1            
         return :next
       end
     end

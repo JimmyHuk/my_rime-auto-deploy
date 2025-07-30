@@ -1,3 +1,5 @@
+require 'fileutils'
+
 module RimeDeploy
   class MacOSJobGroup < JobGroup
     InstallCmd = "brew install --cask squirrel"
@@ -29,7 +31,18 @@ module RimeDeploy
         system(
           "git clone --depth=1 #{Config::RIME_CONFIG_REPO} #{Store.config_path}"
         )
+        sleep 1  
+        # clone to ./rime_git_repo and remove .git
+        system(
+          "git clone --depth=1 #{Config::RIME_CONFIG_REPO} ./rime_git_repo"
+        )
         sleep 1
+        # delete .git
+        begin
+          FileUtils.rm_rf("./rime_git_repo/.git")
+        rescue StandardError => e
+          puts "Warning: Failed to delete .git directory: #{e.message}"
+        end
         return :next
       end
     end
