@@ -45,3 +45,24 @@ patch:
   schema_list:
   - {schema: double_pinyin_flypy}
   - {schema: rime_ice}
+
+  # 处理符合特定规则的输入码，如网址、反查
+  # 此处配置较为通用的选项，各方案中另增加了和方案功能绑定的 patterns。
+  recognizer:
+    patterns:
+      email: "^[A-Za-z][-_.0-9A-Za-z]*@.*$"                            # email @ 之后不上屏
+      url: "^(www[.]|https?:|ftp[.:]|mailto:|file:).*$|^[a-z]+[.].+$"  # URL
+      underscore: "^[A-Za-z]+_.*"  # 下划线不上屏
+
+      # 注释后，有(高权重)候选词时句号默认翻页，无(高权重)候选词时输入句号此时为隐藏状态，继续输入字母后显示句号和前序后序所有字母
+      # eg: woaini 句号翻页；woiain.ai 句号先隐藏再打出ai后显示
+      # url_2: "^[A-Za-z]+[.].*"   # 句号不上屏，支持 google.com abc.txt 等网址或文件名，使用句号翻页时需要注释掉
+
+      # 注释后，输入冒号，强制将候选词上屏
+      # colon: "^[A-Za-z]+:.*"     # 冒号不上屏
+
+      # 文件路径不上屏 from copilot
+      # file_path: "^(/|~|\.|[A-Za-z]:\\).*"  
+
+      # 连接符不上屏
+      hyphen: "^[A-Za-z]+[-].*"
